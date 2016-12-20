@@ -1,0 +1,8 @@
+[devbox:children]
+default
+
+#[us-internal-1]
+#10.203.31.190 ansible_ssh_user=cloud-user ansible_ssh_private_key_file=~/.ssh/devnet-cloud-devtools
+
+[default]
+localhost ansible_user=devbox ansible_password=devbox ansible_host=localhost ansible_port=2222

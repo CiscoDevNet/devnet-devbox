@@ -1,0 +1,22 @@
+---
+# build-servers.yml
+- hosts: devbox
+  #Define user and password variables
+  vars:
+    # created with:
+    # python -c 'import crypt; print crypt.crypt("guest123", "guest")'
+    password : deZglJ0UD./IQ
+    user : devbox
+  roles:
+    - users
+    - common
+    - docker
+    - node
+    - role: node
+      nvm:
+        user: devbox
+        version: v0.32.1
+        node_version: '6.9.2'
+#  environment:
+#    http_proxy: http://proxy-rtp-1.cisco.com:8080
+#    https_proxy: http://proxy-rtp-1.cisco.com:8080

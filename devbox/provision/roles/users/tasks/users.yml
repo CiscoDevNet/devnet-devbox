@@ -1,0 +1,16 @@
+# user.yml
+---
+
+- group: name=devbox state=present
+  become: yes
+- group: name=docker state=present
+  become: yes
+
+# Define task to add user
+- name: add user
+  become: yes
+  action: user name={{ user }} password={{ password }} update_password=always
+               shell=/bin/bash home=/home/{{ user }}
+
+- user: name=devbox shell=/bin/bash group=docker append=yes
+  become: yes

@@ -1,0 +1,13 @@
+# common.yml
+---
+
+- name: Install dependencies
+  become: yes
+  yum: name={{ item }} state=latest
+  with_items:
+    - git
+    - curl
+    - gcc
+    - gcc-c++
+    - make
+    - openssl-devel
