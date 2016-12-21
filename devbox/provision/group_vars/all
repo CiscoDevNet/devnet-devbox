@@ -12,3 +12,8 @@ nvm:
 HOME: /home/{{ general.user }}
 PY_VERSION: 2.7.6
 PY3_VERSION: 3.5.2
+
+pycharm_downloads_path: /home/{{ general.user }}/pycharm/downloads
+pycharm_version: 2016.3.1
+pycharm_edition: community
+pycharm_install_prefix: /home/{{ general.user }}/applications

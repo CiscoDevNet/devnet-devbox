@@ -1,0 +1,63 @@
+# pycharm.yml
+---
+
+# https://github.com/Oefenweb/ansible-pycharm
+
+- name: create (download) directory
+  become: yes
+  become_user: "{{ general.user }}"
+  file:
+    path: "{{ pycharm_downloads_path }}"
+    state: directory
+  tags:
+    - configuration
+    - pycharm
+    - pycharm-download
+
+- name: download
+  become: yes
+  become_user: "{{ general.user }}"
+  get_url:
+    url: "http://download.jetbrains.com/python/pycharm-{{ pycharm_edition }}-{{ pycharm_version }}.tar.gz"
+    dest: "{{ pycharm_downloads_path }}/pycharm-{{ pycharm_edition }}-{{ pycharm_version }}.tar.gz"
+  tags:
+    - configuration
+    - pycharm
+    - pycharm-downloads
+
+- name: create (install) directory
+  become: yes
+  become_user: "{{ general.user }}"
+  file:
+    path: "{{ pycharm_install_prefix }}"
+    state: directory
+  tags:
+    - configuration
+    - pycharm
+    - pycharm-download
+
+- name: install
+  become: yes
+  become_user: "{{ general.user }}"
+  unarchive:
+    src: "{{ pycharm_downloads_path }}/pycharm-{{ pycharm_edition }}-{{ pycharm_version }}.tar.gz"
+    dest: "{{ pycharm_install_prefix }}"
+    creates: "{{ pycharm_install_prefix }}/pycharm-{{ pycharm_version }}"
+    copy: false
+  tags:
+    - configuration
+    - pycharm
+    - pycharm-install
+
+- name: install shortcut
+  become: yes
+  become_user: "{{ general.user }}"
+  template:
+    src: "roles/pycharm/templates/PyCharm CE.desktop.j2"
+    dest: /home/{{ general.user }}/Desktop/PyCharm CE.desktop
+    owner: "{{ general.user }}"
+    mode: 0755
+  tags:
+    - configuration
+    - pycharm
+    - pycharm-download

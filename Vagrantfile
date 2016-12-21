@@ -4,7 +4,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "centos/7"
 
   config.vm.provider "virtualbox" do |v|
-    # v.gui = true
+    v.gui = true
     v.memory = 2048
   end
 
@@ -14,5 +14,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
     ansible.verbose = "v"
     ansible.playbook = "devbox/provision/devbox.yml"
+    #ansible.tags = "pycharm"
   end
 end
