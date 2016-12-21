@@ -3,7 +3,6 @@
 
 You must have Vagrant and VirtualBox installed.
 
-
 # Usage
 
 From your command line, execute 'vagrant up'
