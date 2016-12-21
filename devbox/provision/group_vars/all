@@ -1,6 +1,14 @@
 
 ---
-nvm:
+
+general:
   user: devbox
+
+nvm:
+  user: "{{ general.user }}"
   version: v0.32.1
   node_version: '6.9.2'
+
+HOME: /home/{{ general.user }}
+PY_VERSION: 2.7.6
+PY3_VERSION: 3.5.2

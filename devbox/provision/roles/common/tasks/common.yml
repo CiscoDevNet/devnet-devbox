@@ -7,7 +7,16 @@
   with_items:
     - git
     - curl
-    - gcc
-    - gcc-c++
-    - make
     - openssl-devel
+
+- name: install the 'Gnome desktop' environment group
+  yum:
+    name: "@^gnome-desktop-environment"
+    state: present
+  become: yes
+
+- name: install the 'Development tools' package group
+  yum:
+    name: "@Development tools"
+    state: present
+  become: yes
