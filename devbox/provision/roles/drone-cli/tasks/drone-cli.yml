@@ -1,0 +1,16 @@
+# drone-cli.yml
+---
+
+- name: unpack drone
+  become: yes
+  become_user: "{{ general.user }}"
+  unarchive:
+    src: "http://downloads.drone.io/drone-cli/drone_linux_amd64.tar.gz"
+    dest: /home/{{ general.user }}
+    copy: no
+  tags: drone
+
+- name: install drone cli
+  become: yes
+  command: "install -t /usr/local/bin /home/{{ general.user }}/drone"
+  tags: drone
