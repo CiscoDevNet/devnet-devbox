@@ -53,8 +53,8 @@
   become: yes
   become_user: "{{ general.user }}"
   template:
-    src: "roles/pycharm/templates/PyCharm CE.desktop.j2"
-    dest: /home/{{ general.user }}/Desktop/PyCharm CE.desktop
+    src: "roles/pycharm/templates/PyCharmCE.desktop.j2"
+    dest: /home/{{ general.user }}/Desktop/PyCharmCE.desktop
     owner: "{{ general.user }}"
     mode: 0755
   tags:

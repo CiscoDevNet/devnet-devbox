@@ -9,15 +9,32 @@
     - curl
     - openssl-devel
 
-- name: install the 'Gnome desktop' environment group
+- name: install the 'XWindows' environment group
   yum:
-    name: "@^gnome-desktop-environment"
+    name: "@X Window System"
     state: present
   become: yes
+  tags:
+    - gnome
+
+- name: Install gnome minimal
+  become: yes
+  yum: name={{ item }} state=latest
+  with_items:
+    - gnome-classic-session
+    - gnome-terminal
+    #- nautilus-open-terminal
+    - control-center
+    - liberation-mono-fonts
+    - firefox
+  tags:
+    - gnome
 
 - name: set GUI to launch on startup
   become: yes
   command: "systemctl set-default graphical.target"
+  tags:
+    - gnome
 
 - name: install the 'Development tools' package group
   yum:
@@ -64,3 +81,15 @@
     mode: 0644
   tags:
     - configuration
+
+# https://support.ansible.com/hc/en-us/articles/201958037-Reboot-a-server-and-wait-for-it-to-come-back
+- name: restart machine
+  shell: sleep 2 && shutdown -r now "Ansible updates triggered"
+  async: 1
+  poll: 0
+  sudo: true
+  ignore_errors: true
+
+- name: waiting for server to come back
+  local_action: wait_for host={{ inventory_hostname }} state=started delay=10 timeout=30
+  sudo: false

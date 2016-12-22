@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.groups = {
       "devbox" => ["default"]
     }
+    ansible.config_file = "devbox/ansible.cfg"
     ansible.verbose = "v"
     ansible.playbook = "devbox/provision/devbox.yml"
     #ansible.tags = "pycharm"
