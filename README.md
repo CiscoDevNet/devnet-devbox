@@ -37,4 +37,8 @@ Documentation around the DevNet Sandbox Devbox VM
 * No Atom installation yet
 * ~~You must restart the VM after Ansible completion to have the gnome desktop load by default~~
 
+# Changelog
+
+* [CHANGELOG](CHANGELOG.md)
+
 For details on the Ansible playbook view the [README](devbox/README.md)

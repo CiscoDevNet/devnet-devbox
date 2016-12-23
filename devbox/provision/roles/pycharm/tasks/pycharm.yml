@@ -61,3 +61,27 @@
     - configuration
     - pycharm
     - pycharm-download
+
+- name: create (pycharm options) directory
+  become: yes
+  become_user: "{{ general.user }}"
+  file:
+    path: /home/{{ general.user }}/.PyCharmCE2016.3/config/options
+    state: directory
+  tags:
+    - configuration
+    - pycharm
+    - pycharm-download
+
+- name: install basic configuration
+  become: yes
+  become_user: "{{ general.user }}"
+  template:
+    src: "roles/pycharm/templates/options.xml.j2"
+    dest: /home/{{ general.user }}/.PyCharmCE2016.3/config/options/options.xml
+    owner: "{{ general.user }}"
+    mode: 0644
+  tags:
+    - configuration
+    - pycharm
+    - pycharm-download
