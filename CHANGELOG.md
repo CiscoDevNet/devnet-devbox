@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file.
 - Nothing.
 
 ### Fixed
-- Nothing.
+- `nvm` not loading
 
 ## 2016-12-21
 

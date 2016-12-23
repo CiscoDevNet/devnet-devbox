@@ -33,7 +33,7 @@ Documentation around the DevNet Sandbox Devbox VM
 
 # Known Issues
 
-* nvm not loading when `devbox` user logs in.  Workaround: `$ source ~/.nvm/nvm.sh`
+* ~~nvm not loading when `devbox` user logs in.  Workaround: `$ source ~/.nvm/nvm.sh`~~
 * No Atom installation yet
 * ~~You must restart the VM after Ansible completion to have the gnome desktop load by default~~
 
