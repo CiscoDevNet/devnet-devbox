@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Preconfigured pycharm configuration to avoid intial setup step
+- Variable in `group_vars` to set VM timezone
 
 ### Deprecated
 - Nothing.

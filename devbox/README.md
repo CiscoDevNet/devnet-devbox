@@ -1,19 +1,15 @@
 
-# Prep
+# Software Requirements
 
-You must have Vagrant and VirtualBox installed.
+Tested on Vagrant 1.9.1, Ansible 2.1.1.0 and VirtualBox 5.0.30.
 
 # Usage
 
-From your command line, execute 'vagrant up'
+Review and configure variables contained in `devbox/provision/group_vars`
+
+From within this project, execute 'vagrant up'
 
 On my workstation and home bandwidth, it takes about 12 minutes to complete the playbook.
-
-To manually run run one of the ansible playbooks:
-
-`ansible-playbook -i provision/devbox provision/devbox.yml`
-
-Add `--check --ask-sudo-pass` if you want to run a check or if you need to provide a password for sudo
 
 # Profile
 ```
@@ -40,3 +36,13 @@ python : pyenv | update pyenv repo -------------------------------------- 1.96s
 common : restart machine ------------------------------------------------ 1.30s
 users : add user -------------------------------------------------------- 1.28s
 ```
+
+# Manually run playbook
+
+(Not tested)
+
+To manually run the ansible playbook:
+
+`ansible-playbook -i provision/devbox provision/devbox.yml`
+
+Add `--check --ask-sudo-pass` if you want to run a check or if you need to provide a password for sudo

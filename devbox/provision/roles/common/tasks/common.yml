@@ -1,6 +1,12 @@
 # common.yml
 ---
 
+- name: Set timezone to {{ general.timezone }}
+  become: yes
+  command: "timedatectl set-timezone {{ general.timezone }}"
+  tags:
+    - timezone
+
 - name: Install dependencies
   become: yes
   yum: name={{ item }} state=latest
