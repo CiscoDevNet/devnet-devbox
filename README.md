@@ -1,6 +1,10 @@
 # sandbox-devbox
 Documentation around the DevNet Sandbox Devbox VM
 
+# Software Requirements
+
+Tested on Vagrant 1.9.1, Ansible 2.1.1.0 and VirtualBox 5.0.30.
+
 # Usage
 
 `vagrant up`
