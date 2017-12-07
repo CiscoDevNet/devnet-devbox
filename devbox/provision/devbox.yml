@@ -15,6 +15,4 @@
     - python
     - drone-cli
     - pycharm
-#  environment:
-#    http_proxy: http://proxy-rtp-1.cisco.com:8080
-#    https_proxy: http://proxy-rtp-1.cisco.com:8080
+    - atom
